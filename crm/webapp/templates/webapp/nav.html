@@ -1,0 +1,53 @@
+<nav class="navbar navbar-dark bg-secondary navbar-expand-sm">
+  <a href="{% url 'home' %}" class="navbar-brand mx-3 fw-bolder"
+    >Django Project</a
+  >
+  <button
+    class="navbar-toggler"
+    data-bs-toggle="collapse"
+    data-bs-target="#nav"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="nav">
+    <ul class="navbar-nav">
+      &nbsp; &nbsp; &nbsp; {% if user.is_authenticated %}
+
+      <li class="nav-item">
+        <a
+          href="{% url 'dashboard' %}"
+          class="nav-link fw-semibold text-capitalize fs-6"
+          >DashBoard &nbsp; <i class="fa fa-home" aria-hidden="true"></i
+        ></a>
+      </li>
+
+      &nbsp; &nbsp; &nbsp;
+      <li class="nav-item">
+        <a
+          href="{% url 'mylogout' %}"
+          class="nav-link fw-semibold text-capitalize fs-6"
+          >LogOut&nbsp; <i class="fa fa-sign-out" aria-hidden="true"></i
+        ></a>
+      </li>
+      {% else %}
+
+      <li class="nav-item">
+        <a
+          href="{% url 'register' %}"
+          class="nav-link fw-semibold text-capitalize fs-6"
+          >Register</a
+        >
+      </li>
+
+      &nbsp; &nbsp; &nbsp;
+      <li class="nav-item">
+        <a
+          href="{% url 'mylogin' %}"
+          class="nav-link fw-semibold text-capitalize fs-6"
+          >Login</a
+        >
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>

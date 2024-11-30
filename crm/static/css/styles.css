@@ -1,0 +1,24 @@
+.register-layout {
+  border-radius: 15px;
+  width: 500px;
+}
+
+.nav-link {
+  color: white;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #2b260f;
+  text-decoration: none;
+}
+
+.navbar-brand {
+  color: white;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: #2b260f;
+  text-decoration: none;
+}

@@ -1,0 +1,14 @@
+{% extends 'webapp/base.html' %} {% block content %} <br /><br />
+<div class="text-center">
+  <h1>Django Project</h1>
+  <br />
+  <h3>Keep track of your records effectively</h3>
+
+  <hr />
+
+  <a class="btn btn-secondary mt-3" type="btn" href="{% url 'register'%}"
+    >Create New Record &nbsp; <i class="fa fa-user-plus" aria-hidden="true"></i
+  ></a>
+</div>
+
+{% endblock %}

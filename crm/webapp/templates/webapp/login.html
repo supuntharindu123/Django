@@ -1,0 +1,49 @@
+<!-- <div
+  class="flex-column d-flex align-content-center m-lg-4 mt-xl-5 shadow p-5 justify-content-center"
+  style="width: 500px"
+>
+  <div class="text-center text-decoration-underline fw-bold">
+    <h3>Login Page</h3>
+  </div>
+  <form>
+    <div class="mb-4">
+      <label class="form-label">Username</label>
+      <input id="username" type="text" class="form-control" />
+    </div>
+    <div class="mb-4">
+      <label class="form-label">Password</label>
+      <input id="password" type="password" class="form-control" />
+    </div>
+    <button class="btn btn-danger shadow-sm" type="submit" style="width: 100px">
+      Submit
+    </button>
+  </form>
+</div> -->
+
+{% extends 'webapp/base.html' %} {% load crispy_forms_tags %}
+
+<!-- start block -->
+{% block content %}
+
+<body>
+  <div class="container shadow-lg p-5 bg-light register-layout my-5">
+    <h1>Login to Account</h1>
+
+    <form method="POST" autocomplete="off">
+      {% csrf_token %} {{ form|crispy }}
+
+      <br />
+
+      <button type="submit" class="btn btn-secondary w-100 p-2">Login</button>
+      &nbsp;
+      <div class="text-center fs-6">
+        Don't have an Account?
+        <span
+          ><a href="{% url 'register' %}" class="text-center">Register</a></span
+        >
+      </div>
+    </form>
+  </div>
+</body>
+
+{% endblock %}

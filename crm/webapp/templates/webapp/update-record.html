@@ -1,0 +1,32 @@
+{% extends 'webapp/base.html' %} {% load crispy_forms_tags %}
+<!-- start content block -->
+{% block content %}
+
+<body>
+  <div
+    class="container shadow-lg p-5 bg-light-subtle register-layout mt-4 mb-5"
+  >
+    <h1 class="text-center text-secondary text-decoration-underline fw-bolder">
+      Update Record
+    </h1>
+
+    <form method="POST" autocomplete="off">
+      {% csrf_token %} {{ form|crispy }}
+
+      <br />
+
+      <a class="btn btn-secondary p-2 w-25" href="{% url 'dashboard' %}">
+        Back &nbsp;
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+      </a>
+      &nbsp;
+      <button type="submit" class="btn btn-warning p-2">
+        Update Record &nbsp; <i class="fa fa-check" aria-hidden="true"></i>
+      </button>
+
+      <br />
+    </form>
+  </div>
+</body>
+
+{% endblock %}

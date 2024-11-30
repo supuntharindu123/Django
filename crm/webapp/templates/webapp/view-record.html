@@ -1,0 +1,46 @@
+{% extends 'webapp/base.html' %} {% block content %}
+<body>
+  <div class="card mt-4 shadow mx-5">
+    <h3 class="m-4 text-capitalize">
+      {{record.first_name}} {{record.last_name}}
+    </h3>
+
+    <div class="card-body">
+      <p class="mx-4"><strong>ID: </strong>{{record.id}}</p>
+      <p class="mx-4"><strong>Email: </strong>{{record.email}}</p>
+      <p class="mx-4"><strong>Phone: </strong>{{record.phone}}</p>
+      <p class="mx-4 text-capitalize">
+        <strong>Address: </strong>{{record.address}}
+      </p>
+      <p class="mx-4 text-capitalize"><strong>City: </strong>{{record.city}}</p>
+      <p class="mx-4 text-capitalize">
+        <strong>Province: </strong>{{record.province}}
+      </p>
+      <p class="mx-4 text-capitalize">
+        <strong>Country: </strong>{{record.country}}
+      </p>
+      <p class="mx-4">
+        <strong>Created Date: </strong>{{record.creation_date}}
+      </p>
+    </div>
+  </div>
+  <div class="mx-5">
+    <a
+      class="btn btn-secondary shadow mx-2 mt-3 mb-4 text-capitalize fs-5"
+      href="{% url 'dashboard' %}"
+      >Back &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i
+    ></a>
+    <a
+      class="btn btn-info mx-2 mt-3 mb-4 text-capitalize fs-5 shadow"
+      href="{% url 'updateRecord' record.id %}"
+      >Update Record &nbsp;
+      <i class="fa fa-pencil-square-o" aria-hidden="true"></i
+    ></a>
+    <a
+      class="btn btn-danger mx-2 mt-3 mb-4 text-capitalize fs-5 shadow"
+      href="{% url 'deleteRecord' record.id %}"
+      >Delete Record&nbsp; <i class="fa fa-trash" aria-hidden="true"></i
+    ></a>
+  </div>
+</body>
+{% endblock %}

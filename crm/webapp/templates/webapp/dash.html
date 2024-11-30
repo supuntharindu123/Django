@@ -1,0 +1,58 @@
+{% extends 'webapp/base.html' %} {% block content %}
+<h2 class="mt-2 text-capitalize fw-bold">
+  Welcome To Dashboard!<span class="text-secondary"> &nbsp;{{user}}</span>
+</h2>
+
+<hr />
+<a href="{% url 'createrecord' %}" class="btn btn-outline-secondary ms-auto"
+  >Create Record &nbsp; <i class="fa fa-plus" aria-hidden="true"></i
+></a>
+<hr />
+
+<table class="table table-hover table-bordered">
+  <thead class="table-secondary">
+    <tr>
+      <th scope="col" class="text-center">ID</th>
+      <th scope="col" class="text-center">FullName</th>
+      <th scope="col" class="text-center">Email</th>
+      <th scope="col" class="text-center">Phone</th>
+      <th scope="col" class="text-center">Address</th>
+      <th scope="col" class="text-center">City</th>
+      <th scope="col" class="text-center">Province</th>
+      <th scope="col" class="text-center">Country</th>
+      <th scope="col" class="text-center">Date_joined</th>
+      <th scope="col" class="text-center">View</th>
+    </tr>
+  </thead>
+  <tbody class="table-light">
+    {% if records %} {% for record in records %}
+    <tr>
+      <td class="text-center text-capitalize">{{record.id}}</td>
+      <td class="text-center text-capitalize">
+        {{record.first_name}} {{record.last_name}}
+      </td>
+      <td class="text-center">{{record.email}}</td>
+      <td class="text-center text-capitalize">{{record.phone}}</td>
+      <td class="text-center text-capitalize">{{record.address}}</td>
+      <td class="text-center text-capitalize">{{record.city}}</td>
+      <td class="text-center text-capitalize">{{record.province}}</td>
+      <td class="text-center text-capitalize">{{record.country}}</td>
+      <td class="text-center text-capitalize">{{record.creation_date}}</td>
+      <td class="text-center">
+        <a
+          href="{% url 'viewRecord' record.id %}"
+          class="btn btn-outline-secondary btn-sm"
+        >
+          <i class="fa fa-eye" aria-hidden="true"></i
+        ></a>
+      </td>
+    </tr>
+    {% endfor %} {% else %}
+    <tr>
+      <td colspan="10" class="text-center">No Records Found</td>
+    </tr>
+    {% endif %}
+  </tbody>
+</table>
+
+{% endblock %}
